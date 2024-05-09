@@ -1,0 +1,25 @@
+#cloud-config
+autoinstall:
+  version: 1
+  identity:
+    hostname: oskar
+    username: abbas
+    password: admin
+  ssh:
+    install-server: true
+  packages:
+    - git
+    - docker.io
+    - openssh-server
+    - chromium-browser
+    - avahi-daemon
+    - nodejs
+    - npm
+  snaps:
+    - name: code
+      classic: true
+  user-data:
+    disable_root: false
+    ssh_pwauth: true
+    runcmd:
+      - 'curl -sSL https://install.python-poetry.org | python3 -'
